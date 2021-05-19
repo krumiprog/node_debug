@@ -3,7 +3,7 @@ var Game = require('../db').import('../models/game');
 
 router.get('/all', (req, res) => {
   Game.findAll({ where: { owner_id: req.user.id } }).then(
-    function findSuccess(data) {
+    function findSuccess(games) {
       res.status(200).json({
         games: games,
         message: 'Data fetched.',
@@ -68,7 +68,7 @@ router.put('/update/:id', (req, res) => {
     {
       where: {
         id: req.params.id,
-        owner_id: req.user,
+        owner_id: req.user.id,
       },
     }
   ).then(
