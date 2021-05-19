@@ -1,5 +1,5 @@
-module.exports = function (sequelize, DataTypes) {
-  return sequelize.define('user', {
+module.exports = (sequelize, DataTypes) =>
+  sequelize.define('user', {
     full_name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -23,4 +23,3 @@ module.exports = function (sequelize, DataTypes) {
       },
     },
   });
-};
